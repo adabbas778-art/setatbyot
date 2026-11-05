@@ -8,9 +8,9 @@ const translations: Translations = {
   'nav.home':       { en: 'Home',           ar: 'الرئيسية' },
   'nav.process':    { en: 'Our Process',    ar: 'كيف نعمل' },
   'nav.categories': { en: 'Categories',     ar: 'التصنيفات' },
-  'nav.market':     { en: 'Market',         ar: 'السوق الافتراضي' },
+  'nav.market':     { en: 'Markets',         ar: ' الأسواق الافتراضية' },
   'nav.bazaar':     { en: 'Bazaar',         ar: 'البازار الافتراضي' },
-  'nav.catering':   { en: 'Catering',       ar: 'خدمات الكيترينج' },
+  'nav.catering':   { en: 'Catering',       ar:' مناسبات الكيترينج ' },
   'nav.sponsors':   { en: 'Sponsors',       ar: 'الرعاة' },
   'nav.about':      { en: 'About Us',       ar: 'من نحن' },
   'nav.download':   { en: 'Download App',   ar: 'حمل التطبيق' },
@@ -33,27 +33,29 @@ const translations: Translations = {
     en: 'A complete suite of smart digital services designed for home businesses, food establishments, and modern e-commerce.',
     ar: 'مجموعة متكاملة من الخدمات الرقمية الذكية المصممة لدعم المشاريع المنزلية والمنشآت الغذائية.',
   },
-  'services.1':  { en: 'Home Kitchen Management',     ar: 'إدارة المطابخ المنزلية' },
-  'services.2':  { en: 'Online Ordering Systems',     ar: 'أنظمة الطلب الإلكتروني' },
-  'services.3':  { en: 'Product & Store Management',  ar: 'إدارة المنتجات والمتاجر' },
-  'services.4':  { en: 'Delivery & Logistics',        ar: 'إدارة التوصيل واللوجستيات' },
-  'services.5':  { en: 'Smart Payment Integration',   ar: 'أنظمة الدفع الإلكتروني' },
-  'services.6':  { en: 'Virtual Exhibition',          ar: 'إدارة المعارض الافتراضية' },
-  'services.7':  { en: 'Digital Marketing',           ar: 'التسويق الرقمي والإعلانات' },
-  'services.8':  { en: 'Brand Identity Design',       ar: 'تصميم الهوية التجارية' },
-  'services.9':  { en: 'Startup Support',             ar: 'دعم المشاريع الناشئة' },
-  'services.10': { en: 'Analytics & Dashboards',      ar: 'أنظمة التحليل والإحصائيات' },
-  'services.11': { en: 'UX/UI Optimization',          ar: 'إدارة تجربة المستخدم' },
-  'services.12': { en: 'Security & Protection',       ar: 'أنظمة الحماية والأمان' },
-  'services.13': { en: 'Technical Support',           ar: 'الدعم الفني والتشغيلي' },
-
+  'services.1': {
+  en: 'Virtual Markets Management',
+  ar: 'إدارة الأسواق الافتراضية'
+},
+'services.2': {
+  en: 'Virtual Bazaars Management',
+  ar: 'إدارة البازارات الافتراضية'
+},
+'services.3': {
+  en: 'Handicrafts Management',
+  ar: 'إدارة الحرف اليدوية'
+},
+'services.4': {
+  en: 'Production Kitchens Management',
+  ar: 'إدارة المطابخ الإنتاجية'
+},
   // ── Process ─────────────────────────────────────────
   'process.title': { en: 'How It Works', ar: 'كيف تعمل المنصة' },
   'process.step1.title': { en: 'Join the Platform',      ar: 'الانضمام للمنصة' },
   'process.step1.desc':  { en: 'Register your home kitchen or handmade business and create your digital storefront.', ar: 'سجّلي مطبخك المنزلي أو مشروعك وأنشئي متجرك الرقمي.' },
   'process.step2.title': { en: 'Training & Onboarding',  ar: 'التدريب والتأهيل' },
   'process.step2.desc':  { en: 'Receive professional training and onboarding support to grow your business.', ar: 'احصلي على تدريب احترافي ودعم كامل للانطلاق بمشروعك.' },
-  'process.step3.title': { en: 'Homemade Production',    ar: 'الإنتاج المنزلي' },
+  'process.step3.title': { en: ' Producers',    ar: ' المنتجون' },
   'process.step3.desc':  { en: 'Produce your homemade dishes and handcrafted products with pride and passion.', ar: 'اصنعي منتجاتك المنزلية بشغف واحترافية.' },
   'process.step4.title': { en: 'Quality Checking',       ar: 'فحص الجودة' },
   'process.step4.desc':  { en: 'Every product goes through our ISO-certified quality assurance process.', ar: 'تخضع كل المنتجات لضمان جودة معتمد وفق معايير أيزو.' },
@@ -94,7 +96,7 @@ const translations: Translations = {
   'cat.appetizers':     { en: 'Appetizers',          ar: 'مقبلات' },
 
   // ── Virtual Market (renamed from "Virtual Bazar") ────
-  'market.title':    { en: 'Virtual market',             ar: 'السوق الافتراضي' },
+  'market.title':    {  en: 'Virtual Markets',           ar: 'الأسواق الافتراضية' },
   'market.subtitle': { en: 'Discover · Shop · Connect',  ar: 'اكتشف · تسوّق · تواصل' },
   'market.desc': {
     en: 'Discover premium products from trusted companies and brands, and order directly from the source—no middleman required.',
@@ -143,8 +145,8 @@ const translations: Translations = {
   'catering.banner.badge':    { en: 'From our kitchens', ar: 'لقطات من مطابخنا' },
   'catering.banner.headline': { en: 'Your occasion deserves an unforgettable taste', ar: 'مناسبتك تستحق طعماً لا يُنسى' },
   'catering.banner.subline': {
-    en: 'Authentic homemade flavors prepared by our finest home chefs to hotel standards — for your weddings, companies, and special occasions',
-    ar: 'نكهات بيتية أصيلة تجهزها أمهر ستات البيوت بمعايير الفنادق — لأعراسكم وشركاتكم ومناسباتكم الخاصة',
+   en: 'Authentic flavors prepared by Setat Byot kitchens to professional standards — for your weddings, corporate events, and special occasions',
+    ar: 'نكهات أصيلة تجهزها مطابخ ستات بيوت بمعايير احترافية — لأعراسكم وشركاتكم ومناسباتكم الخاصة',
   },
   'catering.cta.book':     { en: 'Book your occasion',        ar: 'احجزي مناسبتك' },
   'catering.cta.whatsapp': { en: 'WhatsApp consultation',     ar: 'استشارة واتساب' },
@@ -154,7 +156,7 @@ const translations: Translations = {
   'catering.step1.title': { en: 'Choose your menu',          ar: 'اختاري قائمتك' },
   'catering.step1.desc':  { en: 'Ready-made menus or fully customized for your occasion', ar: 'قوائم جاهزة أو مصممة خصيصاً لمناسبتك' },
   'catering.step2.title': { en: 'Prepared with trusted hands', ar: 'نجهّز بأيادٍ أمينة' },
-  'catering.step2.desc':  { en: 'Licensed home kitchens working to ISO standards', ar: 'مطابخ منزلية مرخصة تعمل بمعايير ISO' },
+  'catering.step2.desc':  { en: 'Licensed production kitchens operating in accordance with quality standards', ar:' مطابخ إنتاجية مرخصة تعمل بمعايير الجودة' },
   'catering.step3.title': { en: 'We arrive before your time',  ar: 'نصل قبل موعدك' },
   'catering.step3.desc':  { en: 'Preparation, presentation, and delivery right on schedule', ar: 'تجهيز وتقديم وتوصيل في الوقت المحدد' },
   'catering.trust': {
@@ -205,13 +207,13 @@ const translations: Translations = {
   'about.exp9': { en: 'Smart Logistics & Technology', ar: 'التطبيقات الذكية' },
   'about.vision':       { en: 'Our Vision',   ar: 'رؤيتنا' },
   'about.vision.desc':  {
-    en: "To be the first and most trusted smart platform in Jordan and the region supporting home-based projects, productive kitchens, food establishments, traditional crafts, and smart e-commerce — through advanced operational and technical solutions built on quality, innovation, and sustainability.",
-    ar: 'أن نكون المنصة الذكية الأولى والأكثر ثقة في الأردن والمنطقة لدعم المشاريع المنزلية والمطابخ الإنتاجية والمنشآت الغذائية والحرف البدوية والتجارة الإلكترونية الذكية. عبر تقديم حلول تشغيلية وتقنية متطورة ترتكز على الجودة والابتكار والاستدامة.',
-  },
-  'about.mission':      { en: 'Our Mission',  ar: 'رسالتنا' },
+    en: " To become the leading and most trusted smart platform in Jordan and the region, supporting businesses, production kitchens, food establishments, Bedouin handicrafts, and smart e-commerce by providing advanced operational and technological solutions based on quality, innovation, and sustainability.",
+    ar:   'أن نكون المنصة الذكية الأولى والأكثر ثقة في الأردن والمنطقة لدعم المشاريع والمطابخ الإنتاجية والمنشآت الغذائية والحرف البدوية والتجارة الإلكترونية الذكية، عبر تقديم حلول تشغيلية وتقنية متطورة ترتكز على الجودة والابتكار والاستدامة',
+   },
+   'about.mission':      { en: 'Our Mission',  ar: 'رسالتنا' },
   'about.mission.desc': {
-    en: "Enabling home-based business owners, investors, home kitchens, and food establishments to transform their ideas into successful and sustainable ventures through professional operating systems, modern technology, and integrated services.",
-    ar: 'تمكين أصحاب المشاريع المنزلية والمستثمرين والمطابخ المنزلية والمنشآت الغذائية من تحويل أفكارهم إلى مشاريع ناجحة ومستدامة من خلال أنظمة تشغيل احترافية، وتقنيات حديثة، وخدمات متكاملة.',
+   en: 'Empowering entrepreneurs, investors, production kitchens, and food establishments to transform their ideas into successful and sustainable businesses through professional operating systems, modern technologies, and integrated services.',
+  ar: 'تمكين أصحاب المشاريع والمستثمرين والمطابخ الإنتاجية والمنشآت الغذائية من تحويل أفكارهم إلى مشاريع ناجحة ومستدامة من خلال أنظمة تشغيل احترافية، وتقنيات حديثة، وخدمات متكاملة.'
   },
   'about.reg.title':    { en: 'Official Information', ar: 'المعلومات الرسمية' },
   'about.reg.iso':      { en: 'ISO 9001 Certified', ar: 'حاصلة على شهادة ISO 9001' },
@@ -248,8 +250,8 @@ const translations: Translations = {
 
   // ── Contact ──────────────────────────────────────────
   'contact.address': {
-    en: 'Amman, Jordan – Al-Shmeisani, opposite Ministry of Industry, Trade & Provisioning, Arif Al-Anbatawi St., Al-Jawouni Building, 3rd Floor',
-    ar: 'عمّان-الأردن - الشميساني - مقابل وزارة الصناعة والتجارة والتمويين - شارع عارف العنبتاوي - بناية الجاعوني - الطابق الثالث',
+    en: 'Amman, Jordan – Al-Shmeisani, opposite Ministry of Industry, Trade & Provisioning, Arif Al-Anbatawi St., Peace Complex, 3rd Floor',
+    ar: 'عمّان-الأردن - الشميساني - مقابل وزارة الصناعة والتجارة والتمويين - شارع عارف العنبتاوي - مجمع السلام - الطابق الثالث',
   },
   'contact.pobox':  { en: 'P.O. Box: Amman 142859 – 11814 Jordan', ar: 'صندوق البريد: Amman 142859 – 11814 Jordan' },
   'contact.website':       { en: 'www.setatbyot.com',          ar: 'www.setatbyot.com' },
