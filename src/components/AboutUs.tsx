@@ -6,16 +6,23 @@ import { useLanguage } from '../context/LanguageContext';
 import LegalPolicies from './LegalPolicies';
 
 const EXPERTISE = [
-  'about.exp1','about.exp2','about.exp3','about.exp4','about.exp5',
-  'about.exp6','about.exp7','about.exp8','about.exp9',
+  'about.exp5',
+  'about.exp9',
+  'about.exp1',
+  'about.exp3',
+  'about.exp4',
+  'about.exp8',
 ];
 const REG_ITEMS = [
   'about.reg.country','about.reg.ministry','about.reg.num',
   'about.reg.national','about.reg.trade','about.reg.type',
 ];
 const STANDARDS = [
-  'about.std1','about.std2','about.std3','about.std4',
-  'about.std5','about.std6','about.std7',
+  'about.std1',
+  'about.std2',
+  'about.std3',
+  'about.std5',
+  'about.std6',
 ];
 
 function BuildingIcon() {

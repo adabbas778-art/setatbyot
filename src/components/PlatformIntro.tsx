@@ -172,36 +172,7 @@ export default function PlatformIntro() {
                 ISO 9001
               </motion.a>
 
-              {/* ISO 27001 — same size as stat cards */}
-              <motion.a
-                href="https://www.iafcertsearch.org/certification/mmtODvRNpvK5ym1UqGxxECcb"
-                target="_blank"
-                rel="noopener noreferrer"
-                initial={{ opacity: 0, scale: 0.88 }}
-                animate={isInView ? { opacity: 1, scale: 1 } : {}}
-                transition={{ duration: 0.5, delay: 0.6 }}
-                style={{
-                  display: 'flex',
-                  flexDirection: 'column',
-                  alignItems: 'center',
-                  justifyContent: 'center',
-                  gap: '8px',
-                  padding: '32px 16px',
-                  border: '1px solid var(--accent-border)',
-                  backgroundColor: 'var(--surface)',
-                  color: 'var(--accent)',
-                  fontFamily: 'var(--font-sans)',
-                  fontSize: 'clamp(1rem, 2vw, 1.4rem)',
-                  fontWeight: 700,
-                  letterSpacing: '0.08em',
-                  textDecoration: 'none',
-                  transition: 'border-color 0.2s, box-shadow 0.2s',
-                }}
-                className="iso-badge-link"
-              >
-                <span style={{ fontSize: '1.1rem', color: 'var(--accent)' }}>✓</span>
-                ISO 27001
-              </motion.a>
+              
             </div>
 
           </motion.div>
