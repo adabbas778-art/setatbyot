@@ -8,10 +8,10 @@ const STATS = [
 ];
 
 const SERVICES = [
-  'services.1',  'services.2',  'services.3',  'services.4',
-  'services.5',  'services.6',  'services.7',  'services.8',
-  'services.9',  'services.10', 'services.11', 'services.12',
-  'services.13',
+   'services.1',
+  'services.2',
+  'services.3',
+  'services.4',
 ];
 
 function GoldDivider() {
