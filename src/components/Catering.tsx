@@ -18,9 +18,11 @@ const STEPS = [
 ];
 
 const OCCASIONS = [
-  'catering.photo.weddings',
-  'catering.photo.corporate',
-  'catering.photo.special',
+  'catering.occasion.weddings',
+  'catering.occasion.conferences',
+  'catering.occasion.condolences',
+  'catering.occasion.official',
+  'catering.occasion.home',
 ];
 
 const BOOK_MAILTO = `mailto:Catering@setatbyot.com?subject=${encodeURIComponent('طلب خدمة كيترينج - ستات بيوت')}`;

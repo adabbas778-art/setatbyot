@@ -1,5 +1,6 @@
 import { createContext, useContext, useState, useEffect, ReactNode } from 'react';
 
+
 type Language = 'ar' | 'en';
 type Translations = Record<string, Record<Language, string>>;
 
@@ -10,6 +11,7 @@ const translations: Translations = {
   'nav.categories': { en: 'Categories',     ar: 'التصنيفات' },
   'nav.market':     { en: 'Markets',         ar: ' الأسواق الافتراضية' },
   'nav.bazaar':     { en: 'Bazaar',         ar: 'البازار الافتراضي' },
+  'nav.handmade': { en: 'Handicrafts',ar: 'حرف يدوية'},
   'nav.catering':   { en: 'Catering',       ar:' مناسبات الكيترينج ' },
   'nav.sponsors':   { en: 'Sponsors',       ar: 'الرعاة' },
   'nav.about':      { en: 'About Us',       ar: 'من نحن' },
@@ -70,8 +72,8 @@ ar: 'منتجات وطنية احترافية'},
   'categories.viewMenu': { en: 'View Our Menu',           ar: 'عرض قائمتنا' },
   'categories.subtitle': { en: 'Discover World Cuisines', ar: 'اكتشف مطابخ العالم' },
   'categories.desc': {
-    en: 'Browse dozens of Arabic and international kitchens within a premium digital experience.',
-    ar: 'تصفح عشرات المطابخ العربية والعالمية ضمن تجربة رقمية احترافية.',
+    en: 'Browse thousands of national, Arab and international projects within a professional digital experience.',
+    ar: 'تصفح آلاف المشاريع الوطنية والعربية والعالمية ضمن تجربة رقمية احترافية.',
   },
   'cat.food':           { en: 'Food',               ar: 'مأكولات' },
   'cat.food.desc':      { en: 'Home-cooked meals from talented local chefs.', ar: 'وجبات منزلية من طهاة محليين موهوبين.' },
@@ -81,6 +83,41 @@ ar: 'منتجات وطنية احترافية'},
   'cat.handmade.desc':  { en: 'Unique artisan creations made with skill and heart.', ar: 'إبداعات حرفية فريدة مصنوعة بمهارة وشغف.' },
   'cat.processing':     { en: 'Food Processing',     ar: 'تصنيع غذائي' },
   'cat.processing.desc':{ en: 'Quality preserved and processed homemade food products.', ar: 'منتجات غذائية منزلية محفوظة وعالية الجودة.' },
+  'project.kitchens': {
+  en: 'Our Production Kitchens',
+  ar: 'مطابخنا الإنتاجية'
+},
+'project.kitchens.desc': {
+  en: 'Meals prepared by talented local chefs',
+  ar: 'وجبات من طهاة محليين وموهوبين'
+},
+
+'project.bazaars': {
+  en: 'Our Virtual Bazaars',
+  ar: 'بازاراتنا الافتراضية'
+},
+'project.bazaars.desc': {
+  en: 'Thursday to Saturday',
+  ar: 'من الخميس إلى السبت'
+},
+
+'project.handicrafts': {
+  en: 'Our Handicrafts',
+  ar: 'حرفنا اليدوية'
+},
+'project.handicrafts.desc': {
+  en: 'Crafted by skilled hands',
+  ar: 'أيدٍ عاملة ماهرة'
+},
+
+'project.markets': {
+  en: 'Our Virtual Markets',
+  ar: 'أسواقنا الافتراضية'
+},
+'project.markets.desc': {
+  en: 'Just a click away',
+  ar: 'بكبسة زر'
+},
   'cat.jordanian':      { en: 'Jordanian',           ar: 'أردني' },
   'cat.palestinian':    { en: 'Palestinian',         ar: 'فلسطيني' },
   'cat.lebanese':       { en: 'Lebanese',            ar: 'لبناني' },
@@ -107,8 +144,10 @@ ar: 'منتجات وطنية احترافية'},
 
   // ── Virtual Bazaar (new weekly 48-hour event) ────────
   'wbazaar.eyebrow':  { en: 'Weekly event · 48 hours only', ar: 'فعالية أسبوعية · 48 ساعة فقط' },
-  'wbazaar.title':    { en: 'Virtual bazaar',               ar: 'البازار الافتراضي' },
-  'wbazaar.subtitle': {
+'wbazaar.title': {
+  en: 'Handicrafts & Virtual Bazaar',
+  ar: 'الحرف اليدوية والبازار الافتراضي'
+},  'wbazaar.subtitle': {
     en: "Every weekend, vendors offer special products you won't find in the virtual market — for 48 hours only",
     ar: 'كل نهاية أسبوع، بائعات يقدمن منتجات مميزة لا تجدينها في السوق الافتراضي — لمدة 48 ساعة فقط',
   },
@@ -141,8 +180,10 @@ ar: 'منتجات وطنية احترافية'},
   'wbazaar.cta.vendorBooth': { en: 'Book your booth as a vendor',      ar: 'احجزي ركنك كبائعة' },
 
   // ── Catering (cinematic redesign) ────────────────────
-  'catering.title':    { en: 'Catering services',                        ar: 'خدمات الكيترينج' },
-  'catering.subtitle': { en: 'Fine catering · ISO 9001 certified',       ar: 'ضيافة راقية · معتمدة ISO 9001' },
+'catering.title': { 
+  en: 'Catering Services (Occasions)',
+  ar: 'خدمات الكيترنج (مناسبات)'
+},  'catering.subtitle': { en: 'Fine catering · ISO 9001 certified',       ar: 'ضيافة راقية · معتمدة ISO 9001' },
   'catering.banner.badge':    { en: 'From our kitchens', ar: 'لقطات من مطابخنا' },
   'catering.banner.headline': { en: 'Your occasion deserves an unforgettable taste', ar: 'مناسبتك تستحق طعماً لا يُنسى' },
   'catering.banner.subline': {
@@ -154,6 +195,26 @@ ar: 'منتجات وطنية احترافية'},
   'catering.photo.weddings':  { en: 'Weddings',           ar: 'أعراس' },
   'catering.photo.corporate': { en: 'Corporate',           ar: 'شركات' },
   'catering.photo.special':   { en: 'Special occasions',   ar: 'مناسبات خاصة' },
+  'catering.occasion.weddings': {
+  en: 'Weddings & Celebrations',
+  ar: 'الأفراح والمناسبات السعيدة'
+},
+'catering.occasion.conferences': {
+  en: 'Conferences',
+  ar: 'المؤتمرات'
+},
+'catering.occasion.condolences': {
+  en: 'Condolences',
+  ar: 'بيوت العزاء'
+},
+'catering.occasion.official': {
+  en: 'Official Events',
+  ar: 'المناسبات الرسمية'
+},
+'catering.occasion.home': {
+  en: 'Home Gatherings',
+  ar: 'العزائم المنزلية'
+},
   'catering.step1.title': { en: 'Choose your menu',          ar: 'اختاري قائمتك' },
   'catering.step1.desc':  { en: 'Ready-made menus or fully customized for your occasion', ar: 'قوائم جاهزة أو مصممة خصيصاً لمناسبتك' },
   'catering.step2.title': { en: 'Prepared with trusted hands', ar: 'نجهّز بأيادٍ أمينة' },
@@ -169,8 +230,8 @@ ar: 'منتجات وطنية احترافية'},
   'sponsors.eyebrow':  { en: 'Support empowerment', ar: 'ادعم التمكين' },
   'sponsors.title':    { en: 'Our sponsors',        ar: 'الرعاة الرسميون' },
   'sponsors.subtitle': {
-    en: 'Join our success partners and support home businesses and the local economy',
-    ar: 'انضم إلى شركاء النجاح وادعم المشاريع المنزلية والاقتصاد المحلي',
+    en: 'Join our success partners and support Nationalism businesses and the local economy',
+    ar: 'انضم إلى شركاء النجاح وادعم المشاريع الوطنية والاقتصاد المحلي',
   },
   'sponsors.diamond.title': { en: 'Diamond Sponsors', ar: 'الرعاة الماسيون' },
   'sponsors.diamond.badge': { en: '4 exclusive seats', ar: '4 مقاعد حصرية' },
@@ -194,7 +255,7 @@ ar: 'منتجات وطنية احترافية'},
   'about.company.name':   { en: 'مؤسسة ستات بيوت', ar: 'مؤسسة ستات بيوت' },
   'about.company': {
     en: "One of Jordan's leading specialized firms in integrated solutions for managing, operating, and designing food establishments, entrepreneurial projects, and smart applications. We turn ideas into successful and sustainable ventures.",
-    ar: 'من المؤسسات الأردنية المتخصصة والرائدة في تقديم حلول متكاملة لإدارة وتشغيل وتصميم المنشآت الغذائية والمشاريع الريادية والتطبيقات الذكية. تحوّل الأفكار إلى مشاريع ناجحة ومستدامة.',
+    ar: ' المؤسسة الأردنية المتخصصة والرائدة في تقديم حلول متكاملة لإدارة وتشغيل وتصميم المنشآت الغذائية والمشاريع الريادية والتطبيقات الذكية. تحوّل الأفكار إلى مشاريع ناجحة ومستدامة.',
   },
   'about.expertise.title': { en: 'Our Areas of Expertise', ar: 'مجالات خبرتنا' },
   'about.exp1': { en: 'Operations & Management',      ar: 'الإدارة والتشغيل' },
@@ -209,7 +270,7 @@ ar: 'منتجات وطنية احترافية'},
   'about.vision':       { en: 'Our Vision',   ar: 'رؤيتنا' },
   'about.vision.desc':  {
     en: " To become the leading and most trusted smart platform in Jordan and the region, supporting businesses, production kitchens, food establishments, Bedouin handicrafts, and smart e-commerce by providing advanced operational and technological solutions based on quality, innovation, and sustainability.",
-    ar:   'أن نكون المنصة الذكية الأولى والأكثر ثقة في الأردن والمنطقة لدعم المشاريع والمطابخ الإنتاجية والمنشآت الغذائية والحرف البدوية والتجارة الإلكترونية الذكية، عبر تقديم حلول تشغيلية وتقنية متطورة ترتكز على الجودة والابتكار والاستدامة',
+    ar:   'أن نكون المنصة الذكية الأولى والأكثر ثقة في الأردن و العالم  والمنطقة لدعم المشاريع والمطابخ الإنتاجية والمنشآت الغذائية والحرف البدوية والتجارة الإلكترونية الذكية، عبر تقديم حلول تشغيلية وتقنية متطورة ترتكز على الجودة والابتكار والاستدامة',
    },
    'about.mission':      { en: 'Our Mission',  ar: 'رسالتنا' },
   'about.mission.desc': {
@@ -223,10 +284,15 @@ ar: 'منتجات وطنية احترافية'},
   'about.reg.num':      { en: 'Registration No.: 588180', ar: 'رقم التسجيل: 588180' },
   'about.reg.national': { en: 'National No.: 101042113', ar: 'الرقم الوطني: 101042113' },
   'about.reg.trade':    { en: 'Trade Name: 293366', ar: 'الاسم التجاري: 293366' },
+'about.reg.trademark': {
+  en: 'Registered Trademark',
+  ar: 'علامة تجارية مسجلة'
+},  
   'about.reg.type':     { en: 'Sole Proprietorship', ar: 'مؤسسة فردية' },
 
+
   // ── Partners section ────────────────────────────────
-  'about.partners.title': { en: 'Our Partners', ar: 'شركاؤنا' },
+  'about.partners.title': { en: 'certification body ', ar: 'الجهة المانحة' },
   'about.partners.msis.name':  { en: 'MSIS Company', ar: 'مؤسسة MSIS' },
   'about.partners.msis.badge': { en: 'Certified Partner — ISO 9001', ar: 'شريك معتمد — ISO 9001' },
   'about.partners.msis.desc': {
@@ -261,7 +327,7 @@ ar: 'منتجات وطنية احترافية'},
   'cta.title':     { en: 'Start Your Journey',   ar: 'ابدأ رحلتك' },
   'cta.desc': {
     en: 'Setat Byot is not just a website. It is a complete digital experience designed to be the gateway to the future for home kitchens and entrepreneurial projects.',
-    ar: 'ستات بيوت ليست مجرد موقع إلكتروني. إنها تجربة رقمية متكاملة صُممت لتكون بوابة المستقبل للمطابخ المنزلية والمشاريع الريادية.',
+    ar: 'ستات بيوت ليست مجرد موقع إلكتروني. إنها تجربة رقمية متكاملة صُممت لتكون بوابة المستقبل  والمشاريع الريادية.',
   },
   'cta.appstore':   { en: 'App Store',    ar: 'متجر التطبيقات' },
   'cta.googleplay': { en: 'Google Play',  ar: 'جوجل بلاي' },

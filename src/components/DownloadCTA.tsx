@@ -104,8 +104,12 @@ export default function DownloadCTA() {
           {/* App store buttons */}
           <div style={{ display: 'flex', flexWrap: 'wrap', alignItems: 'center', justifyContent: 'center', gap: '16px', marginBottom: '48px' }}>
             {/* Google Play — text first, icon second: in RTL icon lands LEFT (trailing) */}
-            <button className="store-btn" style={{
-              display: 'inline-flex', alignItems: 'center', gap: '10px',
+<a
+  href="https://play.google.com/store/apps/details?id=com.ebda3user"
+  target="_blank"
+  rel="noopener noreferrer"
+  className="store-btn"
+  style={{    display: 'inline-flex', alignItems: 'center', gap: '10px',
               padding: '13px 32px',
               border: '1px solid var(--border)',
               backgroundColor: 'transparent',
@@ -118,10 +122,11 @@ export default function DownloadCTA() {
               transition: 'border-color 0.2s, color 0.2s, background 0.2s',
               minWidth: '190px',
               justifyContent: 'center',
+              textDecoration: 'none',
             }}>
               <span>{t('cta.googleplay')}</span>
               <span style={{ color: 'var(--accent)', display: 'flex', alignItems: 'center' }}><PlayIcon /></span>
-            </button>
+            </a>
 
             {/* App Store — text first, icon second */}
             <button className="store-btn" style={{

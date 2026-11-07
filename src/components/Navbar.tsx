@@ -12,6 +12,7 @@ const NAV_LINKS = [
   { key: 'nav.categories', id: 'categories' },
   { key: 'nav.market',     id: 'market' },
   { key: 'nav.bazaar',     id: 'bazaar' },
+  { key: 'nav.handmade', id: 'bazaar' },
   { key: 'nav.catering',   id: 'catering' },
   { key: 'nav.sponsors',   id: 'sponsors' },
   { key: 'nav.about',      id: 'about' },

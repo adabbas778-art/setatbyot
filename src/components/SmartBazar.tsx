@@ -2,20 +2,44 @@ import { useRef } from 'react';
 import { motion, useInView } from 'framer-motion';
 import { useLanguage } from '../context/LanguageContext';
 
-import imgBazar1  from '../assets/market-artisan-bakery-display.jpg';
-import imgBazar2  from '../assets/market-fresh-fruit-display.jpg';
-import imgBazar3  from '../assets/market-specialty-cheese-display.jpg';
-import imgBazar4  from '../assets/market-traditional-bakery-display.jpg';
-import imgBazar5  from '../assets/market-rice-provisions.jpg';
-import imgBazar6  from '../assets/market-premium-meat-display.jpg';
+// New market images
+import marketCars from '../assets/market-cars.jpg';
+import marketTelecom from '../assets/market-telecom.jpg';
+import marketBanks from '../assets/bank.jpeg';
+import marketElectronics from '../assets/market-electronics.jpg';
+import marketFactories from '../assets/market-food-factories.jpg';
+import marketFurniture from '../assets/market-furniture.jpg';
+import marketWater from '../assets/market-water.jpg';
 
-const PRODUCTS = [
-  { img: imgBazar1, label: 'cat.manoush',    style: { gridColumn: 'span 2', gridRow: 'span 2' } },
-  { img: imgBazar2, label: 'cat.salads',     style: { gridColumn: 'span 1', gridRow: 'span 1' } },
-  { img: imgBazar3, label: 'cat.handmade',   style: { gridColumn: 'span 1', gridRow: 'span 1' } },
-  { img: imgBazar4, label: 'cat.jordanian',  style: { gridColumn: 'span 1', gridRow: 'span 2' } },
-  { img: imgBazar5, label: 'cat.food',       style: { gridColumn: 'span 1', gridRow: 'span 1' } },
-  { img: imgBazar6, label: 'cat.food',       style: { gridColumn: 'span 2', gridRow: 'span 1' } },
+// Original images kept as requested
+import marketSalads from '../assets/market-fresh-fruit-display.jpg';
+import marketRice from '../assets/market-rice-provisions.jpg';
+
+type MarketItem = { img: string; labelAr: string; labelEn: string };
+
+// Three images on each side, all with equal height.
+const LEFT_PRODUCTS: MarketItem[] = [
+  { img: marketTelecom, labelAr: 'قطاع الاتصالات', labelEn: 'Telecommunications' },
+  { img: marketRice, labelAr: 'الأرز والمواد التموينية', labelEn: 'Rice & Provisions' },
+  { img: marketFactories, labelAr: 'مصانع الأغذية', labelEn: 'Food Manufacturing' },
+];
+
+const CENTER_PRODUCTS: MarketItem[] = [
+  { img: marketBanks, labelAr: 'قطاع البنوك', labelEn: 'Banks' },
+  { img: marketElectronics, labelAr: 'الكهربائيات', labelEn: 'Electronics & Appliances' },
+  { img: marketFurniture, labelAr: 'المفروشات', labelEn: 'Furniture' },
+];
+
+const RIGHT_PRODUCTS: MarketItem[] = [
+  { img: marketSalads, labelAr: 'سلطات', labelEn: 'Salads' },
+  { img: marketCars, labelAr: 'السيارات', labelEn: 'Cars' },
+  { img: marketWater, labelAr: 'المياه', labelEn: 'Water & Filtration' },
+];
+
+const MARKET_COLUMNS = [
+  { name: 'left', items: LEFT_PRODUCTS },
+  { name: 'center', items: CENTER_PRODUCTS },
+  { name: 'right', items: RIGHT_PRODUCTS },
 ];
 
 export default function SmartBazar() {
@@ -73,64 +97,78 @@ export default function SmartBazar() {
           </p>
         </motion.div>
 
-        {/* ── Mosaic grid ────────────────────────────── */}
-        <div style={{
+        {/* ── Balanced market mosaic: 3 equal-sized cards on each side ─── */}
+        <div className="bazar-grid" style={{
           display: 'grid',
-          gridTemplateColumns: 'repeat(4, 1fr)',
-          gridAutoRows: '200px',
+          gridTemplateColumns: '1fr 2fr 1fr',
+          height: '660px',
+          direction: 'ltr', // Maintain positions in Arabic and English
           gap: '12px',
-        }} className="bazar-grid">
-          {PRODUCTS.map((p, i) => (
-            <motion.div
-              key={i}
-              initial={{ opacity: 0, scale: 0.95 }}
-              animate={isInView ? { opacity: 1, scale: 1 } : {}}
-              transition={{ duration: 0.5, delay: i * 0.08 }}
+        }}>
+          {MARKET_COLUMNS.map((column, columnIndex) => (
+            <div
+              key={column.name}
+              className={`bazar-column bazar-column-${column.name}`}
               style={{
-                position: 'relative',
-                overflow: 'hidden',
-                border: '1px solid var(--border)',
-                backgroundColor: 'var(--surface)',
-                transition: 'border-color 0.3s',
-                cursor: 'pointer',
-                ...p.style,
+                display: 'grid',
+                gridTemplateRows: column.name === 'center' ? '2.2fr 0.9fr 0.9fr' : 'repeat(3, minmax(0, 1fr))',
+                minWidth: 0,
+                minHeight: 0,
+                gap: '12px',
               }}
-              className="bazar-card"
             >
-              <img
-                src={p.img}
-                alt={t(p.label)}
-                style={{ width: '100%', height: '100%', objectFit: 'cover', transition: 'transform 0.7s ease' }}
-                className="bazar-img"
-              />
-              <div style={{
-                position: 'absolute', inset: 0,
-                backgroundColor: 'rgba(19,19,19,0.12)',
-                transition: 'background-color 0.4s',
-              }} className="bazar-overlay" />
-              <div style={{
-                position: 'absolute', bottom: 0, left: 0, right: 0,
-                padding: '16px',
-                opacity: 0,
-                transition: 'opacity 0.3s',
-              }} className="bazar-label">
-                <span style={{
-                  display: 'inline-block',
-                  backgroundColor: 'rgba(19,19,19,0.85)',
-                  border: '1px solid var(--accent-border)',
-                  color: 'var(--accent)',
-                  fontSize: '0.72rem',
-                  fontFamily: isArabic ? 'var(--font-arabic)' : 'var(--font-sans)',
-                  fontWeight: 600,
-                  letterSpacing: isArabic ? '0' : '0.1em',
-                  textTransform: isArabic ? 'none' : 'uppercase',
-                  padding: '4px 12px',
-                  backdropFilter: 'blur(8px)',
-                }}>
-                  ◆ {t(p.label)}
-                </span>
-              </div>
-            </motion.div>
+              {column.items.map((p, i) => (
+                <motion.div
+                  key={`${column.name}-${i}`}
+                  initial={{ opacity: 0, scale: 0.95 }}
+                  animate={isInView ? { opacity: 1, scale: 1 } : {}}
+                  transition={{ duration: 0.5, delay: (columnIndex * 3 + i) * 0.08 }}
+                  style={{
+                    position: 'relative',
+                    overflow: 'hidden',
+                    minWidth: 0,
+                    minHeight: 0,
+                    border: '1px solid var(--border)',
+                    backgroundColor: 'var(--surface)',
+                    transition: 'border-color 0.3s',
+                    cursor: 'pointer',
+                  }}
+                  className={`bazar-card${column.name === 'center' && i === 0 ? ' bazar-card--feature' : ''}`}
+                >
+                  <img
+                    src={p.img}
+                    alt={isArabic ? p.labelAr : p.labelEn}
+                    style={{ width: '100%', height: '100%', objectFit: 'cover', display: 'block', transition: 'transform 0.7s ease' }}
+                    className="bazar-img"
+                  />
+                  <div style={{
+                    position: 'absolute', inset: 0,
+                    backgroundColor: 'rgba(19,19,19,0.12)',
+                    transition: 'background-color 0.4s',
+                  }} className="bazar-overlay" />
+                  <div style={{
+                    position: 'absolute', bottom: 0, left: 0, right: 0,
+                    padding: '16px', opacity: 0, transition: 'opacity 0.3s',
+                  }} className="bazar-label">
+                    <span style={{
+                      display: 'inline-block',
+                      backgroundColor: 'rgba(19,19,19,0.85)',
+                      border: '1px solid var(--accent-border)',
+                      color: 'var(--accent)',
+                      fontSize: '0.72rem',
+                      fontFamily: isArabic ? 'var(--font-arabic)' : 'var(--font-sans)',
+                      fontWeight: 600,
+                      letterSpacing: isArabic ? '0' : '0.1em',
+                      textTransform: isArabic ? 'none' : 'uppercase',
+                      padding: '4px 12px',
+                      backdropFilter: 'blur(8px)',
+                    }}>
+                      ◆ {isArabic ? p.labelAr : p.labelEn}
+                    </span>
+                  </div>
+                </motion.div>
+              ))}
+            </div>
           ))}
         </div>
 
@@ -175,11 +213,15 @@ export default function SmartBazar() {
         .bazar-card:hover .bazar-label { opacity: 1 !important; }
         .bazar-btn:hover { background: var(--primary-hover) !important; box-shadow: var(--accent-glow) !important; }
         @media (max-width: 768px) {
-          .bazar-grid { grid-template-columns: repeat(2, 1fr) !important; grid-auto-rows: 180px !important; }
-          .bazar-grid > div { grid-column: span 1 !important; grid-row: span 1 !important; }
+          .bazar-grid { grid-template-columns: repeat(2, minmax(0, 1fr)) !important; height: auto !important; }
+          .bazar-column { display: contents !important; }
+          .bazar-card { height: 190px !important; }
+          .bazar-card--feature { grid-column: span 2 !important; height: 280px !important; }
         }
         @media (max-width: 480px) {
           .bazar-grid { grid-template-columns: 1fr !important; }
+          .bazar-card { height: 210px !important; }
+          .bazar-card--feature { grid-column: span 1 !important; height: 260px !important; }
         }
       `}</style>
     </section>

@@ -15,7 +15,7 @@ const EXPERTISE = [
 ];
 const REG_ITEMS = [
   'about.reg.country','about.reg.ministry','about.reg.num',
-  'about.reg.national','about.reg.trade','about.reg.type',
+  'about.reg.national','about.reg.trade',  'about.reg.trademark','about.reg.type',
 ];
 const STANDARDS = [
   'about.std1',

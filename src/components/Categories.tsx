@@ -3,10 +3,10 @@ import { motion, useInView, AnimatePresence } from 'framer-motion';
 import { X } from 'lucide-react';
 import { useLanguage } from '../context/LanguageContext';
 
-import catFood       from '../assets/category-home-cooked-pasta.jpg';
-import catBeverages  from '../assets/category-cold-beverages.jpg';
-import catHandmade   from '../assets/category-handmade-pottery.jpg';
-import catProcessing from '../assets/category-preserved-pickles.jpg';
+import catFood from '../assets/project-kitchens.png';
+import catBeverages from '../assets/project-bazaars.png';
+import catHandmade from '../assets/project-handicrafts.jpeg';
+import catProcessing from '../assets/project-markets.png';
 
 // Menu pages rendered from the current Setat Byot PDF menu.
 import menu1 from '../assets/menu/setat-byot-menu-cover.png';
@@ -18,30 +18,34 @@ import menu6 from '../assets/menu/setat-byot-menu-desserts-and-beverages.png';
 
 const MENU_PAGES = [menu1, menu2, menu3, menu4, menu5, menu6];
 
-const CUISINES = [
-  { flag: '🇯🇴', key: 'cat.jordanian' },
-  { flag: '🇵🇸', key: 'cat.palestinian' },
-  { flag: '🇱🇧', key: 'cat.lebanese' },
-  { flag: '🇸🇾', key: 'cat.syrian' },
-  { flag: '🇲🇦', key: 'cat.moroccan' },
-  { flag: '🇾🇪', key: 'cat.yemeni' },
-  { flag: '🇮🇶', key: 'cat.iraqi' },
-  { flag: '🇮🇹', key: 'cat.italian' },
-  { flag: '🇲🇽', key: 'cat.mexican' },
-  { flag: '🥗', key: 'cat.salads' },
-  { flag: '🧆', key: 'cat.appetizers' },
-  { flag: '🍰', key: 'cat.desserts' },
-  { flag: '🧃', key: 'cat.drinks' },
-  { flag: '🫓', key: 'cat.manoush' },
-];
+
 
 const CATEGORIES = [
-  { id: 'food',       titleKey: 'cat.food',       descKey: 'cat.food.desc',       img: catFood       },
-  { id: 'beverages',  titleKey: 'cat.beverages',   descKey: 'cat.beverages.desc',  img: catBeverages  },
-  { id: 'handmade',   titleKey: 'cat.handmade',    descKey: 'cat.handmade.desc',   img: catHandmade   },
-  { id: 'processing', titleKey: 'cat.processing',  descKey: 'cat.processing.desc', img: catProcessing },
+  {
+    id: 'food',
+    titleKey: 'project.kitchens',
+    descKey: 'project.kitchens.desc',
+    img: catFood
+  },
+  {
+    id: 'beverages',
+    titleKey: 'project.bazaars',
+    descKey: 'project.bazaars.desc',
+    img: catBeverages
+  },
+  {
+    id: 'handmade',
+    titleKey: 'project.handicrafts',
+    descKey: 'project.handicrafts.desc',
+    img: catHandmade
+  },
+  {
+    id: 'processing',
+    titleKey: 'project.markets',
+    descKey: 'project.markets.desc',
+    img: catProcessing
+  },
 ];
-
 function MenuModal({ onClose }: { onClose: () => void }) {
   // Close on Escape key
   useEffect(() => {
@@ -194,36 +198,61 @@ export default function Categories() {
           </p>
         </motion.div>
 
-        {/* Cuisine tags */}
-        <motion.div
-          initial={{ opacity: 0 }}
-          animate={isInView ? { opacity: 1 } : {}}
-          transition={{ duration: 0.6, delay: 0.2 }}
-          style={{ display: 'flex', flexWrap: 'wrap', justifyContent: 'center', gap: '8px', marginBottom: '48px' }}
-        >
-          {CUISINES.map((c, i) => (
-            <span
-              key={i}
-              style={{
-                display: 'inline-flex',
-                alignItems: 'center',
-                gap: '6px',
-                padding: '6px 14px',
-                border: '1px solid var(--border)',
-                backgroundColor: 'var(--surface)',
-                fontSize: '0.78rem',
-                color: 'var(--muted-foreground)',
-                fontFamily: isArabic ? 'var(--font-arabic)' : 'var(--font-sans)',
-                cursor: 'default',
-                transition: 'border-color 0.2s, color 0.2s',
-              }}
-              className="cuisine-tag"
-            >
-              <span>{c.flag}</span>
-              <span>{t(c.key)}</span>
-            </span>
-          ))}
-        </motion.div>
+   <div style={{
+  display: 'flex',
+  justifyContent: 'center',
+  marginBottom: '45px',
+}}>
+  <motion.div
+    whileHover={{
+      y: -6,
+      scale: 1.04,
+      borderColor: 'var(--accent)',
+      boxShadow: '0 12px 35px rgba(212,175,55,0.20)',
+    }}
+    transition={{
+      duration: 0.3,
+      ease: 'easeOut',
+    }}
+    style={{
+      display: 'flex',
+      flexDirection: 'column',
+      alignItems: 'center',
+      justifyContent: 'center',
+      gap: '12px',
+      padding: '20px 42px',
+      minWidth: '220px',
+      border: '1px solid var(--border)',
+      backgroundColor: 'var(--surface)',
+      borderRadius: '4px',
+      textAlign: 'center',
+    }}
+  >
+    <span style={{
+      color: 'var(--accent)',
+      fontSize: '1.5rem',
+    }}>
+      ✦
+    </span>
+
+    <span style={{
+      fontFamily: isArabic
+        ? 'var(--font-arabic)'
+        : 'var(--font-sans)',
+      fontSize: '1.2rem',
+      fontWeight: 700,
+      color: 'var(--foreground)',
+    }}>
+      {isArabic ? 'شبكة المشاريع' : 'Projects Network'}
+    </span>
+
+    <div style={{
+      width: '45px',
+      height: '2px',
+      backgroundColor: 'var(--accent)',
+    }} />
+  </motion.div>
+</div>
 
         {/* Category cards grid */}
         <div style={{ display: 'grid', gridTemplateColumns: 'repeat(4, 1fr)', gap: '16px' }} className="categories-grid">
