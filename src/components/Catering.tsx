@@ -8,8 +8,9 @@ import {
   Truck,
 } from 'lucide-react';
 import { useLanguage } from '../context/LanguageContext';
-import cateringImg from '../assets/catering-event-food-display.jpeg';
-import cateringDetailImg from '../assets/catering-event-service-team.jpeg';
+import cateringImg from '../assets/wedding-catering.jpg';
+import cateringDetailImg from '../assets/our_kitchens.jpg';
+
 
 const STEPS = [
   { icon: CalendarDays, titleKey: 'catering.step1.title', descKey: 'catering.step1.desc' },

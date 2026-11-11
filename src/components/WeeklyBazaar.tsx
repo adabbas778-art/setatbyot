@@ -5,8 +5,8 @@ import { useLanguage } from '../context/LanguageContext';
 import { isBazaarOpen, nextOpening, getCountdown, buildGoogleCalendarLink } from '../utils/bazaarSchedule';
 import lionsLogo from '../assets/lions-signature-bazaars-logo.png';
 import imgHandmade   from '../assets/weekly-bazaar-handmade-crafts.jpg';
-import imgSweets     from '../assets/weekly-bazaar-gourmet-dishes.jpg';
-import imgProvisions from '../assets/weekly-bazaar-salads-and-appetizers.jpg';
+import imgSweets from '../assets/bazar-handmade-macrame.jpg';
+import imgProvisions from '../assets/bazar-handmade-jewelry.jpg';
 import imgGifts      from '../assets/weekly-bazaar-gifts-and-decor.jpg';
 
 // Photo collage tiles — data-driven so photos can be replaced without

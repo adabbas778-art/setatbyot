@@ -3,7 +3,7 @@ import { motion, useInView } from 'framer-motion';
 import { useLanguage } from '../context/LanguageContext';
 
 // New market images
-import marketCars from '../assets/market-cars.jpg';
+import marketCars from '../assets/market-cars-new.png';
 import marketTelecom from '../assets/market-telecom.jpg';
 import marketBanks from '../assets/bank.jpeg';
 import marketElectronics from '../assets/market-electronics.jpg';
