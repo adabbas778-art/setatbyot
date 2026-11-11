@@ -379,13 +379,13 @@ export default function AboutUs() {
               },
               {
                 label: 'EMAIL',
-                links: [
-                  { href: 'mailto:Info@setatbyot.com',        text: 'Info@setatbyot.com' },
-                  { href: 'mailto:CEO@setatbyot.com',         text: 'CEO@setatbyot.com' },
-                  { href: 'mailto:Catering@setatbyot.com',    text: 'Catering@setatbyot.com' },
-                  { href: 'mailto:Sponsorship@setatbyot.com', text: 'Sponsorship@setatbyot.com' },
-                  { href: 'mailto:HR@setatbyot.com',          text: 'HR@setatbyot.com' },
-                ],
+               links: [
+                 { href: 'mailto:Info@setatbyot.com', text: 'Info@setatbyot.com' },
+                 { href: 'mailto:Sponsorship@setatbyot.com', text: 'Sponsorship@setatbyot.com' },
+                 { href: 'mailto:Catering@setatbyot.com', text: 'Catering@setatbyot.com' },
+                 { href: 'mailto:HR@setatbyot.com', text: 'HR@setatbyot.com' },
+                 { href: 'mailto:CEO@setatbyot.com', text: 'CEO@setatbyot.com' },
+],
               },
               {
                 label: 'WEBSITE',
@@ -408,7 +408,7 @@ export default function AboutUs() {
                       dir="ltr"
                       style={{
                         fontSize: '0.82rem',
-                        color: 'var(--muted-foreground)',
+                     color: link.text.toLowerCase() === 'ceo@setatbyot.com' ? '#dc2626' : 'var(--muted-foreground)',
                         fontFamily: 'var(--font-sans)',
                         transition: 'color 0.2s',
                         display: 'inline-block',

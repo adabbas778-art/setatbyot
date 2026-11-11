@@ -365,10 +365,33 @@ export default function Categories() {
         .menu-btn:hover { background: var(--primary-hover) !important; box-shadow: var(--accent-glow) !important; }
         @media (max-width: 900px) {
           .categories-grid { grid-template-columns: repeat(2, 1fr) !important; }
-        }
-        @media (max-width: 560px) {
-          .categories-grid { grid-template-columns: 1fr !important; }
-        }
+       @media (max-width: 560px) {
+  .categories-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
+    gap: 10px !important;
+  }
+
+  .cat-card {
+    height: 230px !important;
+    min-width: 0;
+  }
+
+  .cat-card > div:last-child {
+    padding: 12px !important;
+  }
+
+  .cat-card h3 {
+    font-size: 0.9rem !important;
+    line-height: 1.4 !important;
+    margin-bottom: 0 !important;
+    overflow-wrap: break-word;
+  }
+
+  .cat-card .cat-desc {
+    display: none !important;
+  }
+}
+
       `}</style>
     </section>
   );

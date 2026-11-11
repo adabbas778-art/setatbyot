@@ -33,7 +33,7 @@ const translations: Translations = {
   'services.title': { en: 'Smart Digital Services',   ar: 'الخدمات الرقمية الذكية' },
   'services.desc': {
     en: 'A complete suite of smart digital services designed for home businesses, food establishments, and modern e-commerce.',
-    ar: 'مجموعة متكاملة من الخدمات الرقمية الذكية المصممة لدعم المشاريع المنزلية والمنشآت الغذائية.',
+    ar: 'مجموعة متكاملة من الخدمات الرقمية الذكية المصممة لدعم المشاريع  والمنشآت الغذائية.',
   },
   'services.1': {
   en: 'Virtual Markets Management',
@@ -54,7 +54,7 @@ const translations: Translations = {
   // ── Process ─────────────────────────────────────────
   'process.title': { en: 'How It Works', ar: 'كيف تعمل المنصة' },
   'process.step1.title': { en: 'Join the Platform',      ar: 'الانضمام للمنصة' },
-  'process.step1.desc':  { en: 'Register your home kitchen or handmade business and create your digital storefront.', ar: 'سجّلي مطبخك المنزلي أو مشروعك وأنشئي متجرك الرقمي.' },
+  'process.step1.desc':  { en: 'Register your home kitchen or handmade business and create your digital storefront.', ar: 'سجّل مطبخك  أو مشروعك وأنشئ متجرك الرقمي.' },
   'process.step2.title': { en: 'Training & Onboarding',  ar: 'التدريب والتأهيل' },
   'process.step2.desc':  { en: 'Receive professional training and onboarding support to grow your business.', ar: 'احصلي على تدريب احترافي ودعم كامل للانطلاق بمشروعك.' },
   'process.step3.title': { en: ' Producers',    ar: ' المنتجون' },
@@ -63,7 +63,7 @@ ar: 'منتجات وطنية احترافية'},
   'process.step4.title': { en: 'Quality Checking',       ar: 'فحص الجودة' },
   'process.step4.desc':  { en: 'Every product goes through our ISO-certified quality assurance process.', ar: 'تخضع كل المنتجات لضمان جودة معتمد وفق معايير أيزو.' },
   'process.step5.title': { en: 'Product Publishing',     ar: 'نشر المنتجات' },
-  'process.step5.desc':  { en: 'Publish your products and reach thousands of customers.', ar: 'انشري منتجاتك وصلي لآلاف العملاء.' },
+  'process.step5.desc':  { en: 'Publish your products and reach thousands of customers.', ar: 'انشر/ي منتجاتك وصلي لآلاف العملاء.' },
   'process.step6.title': { en: 'Order & Delivery',       ar: 'الطلب والتوصيل' },
   'process.step6.desc':  { en: 'Customers order seamlessly and receive items through our smart logistics network.', ar: 'يطلب العملاء بسهولة عبر شبكة لوجستية ذكية.' },
 

@@ -15,7 +15,7 @@ import marketWater from '../assets/market-water.jpg';
 import marketSalads from '../assets/market-fresh-fruit-display.jpg';
 import marketRice from '../assets/market-rice-provisions.jpg';
 
-type MarketItem = { img: string; labelAr: string; labelEn: string };
+type MarketItem = { img: string; labelAr: string; labelEn: string };    
 
 // Three images on each side, all with equal height.
 const LEFT_PRODUCTS: MarketItem[] = [
@@ -212,17 +212,51 @@ export default function SmartBazar() {
         .bazar-card:hover .bazar-overlay { background-color: transparent !important; }
         .bazar-card:hover .bazar-label { opacity: 1 !important; }
         .bazar-btn:hover { background: var(--primary-hover) !important; box-shadow: var(--accent-glow) !important; }
-        @media (max-width: 768px) {
-          .bazar-grid { grid-template-columns: repeat(2, minmax(0, 1fr)) !important; height: auto !important; }
-          .bazar-column { display: contents !important; }
-          .bazar-card { height: 190px !important; }
-          .bazar-card--feature { grid-column: span 2 !important; height: 280px !important; }
-        }
-        @media (max-width: 480px) {
-          .bazar-grid { grid-template-columns: 1fr !important; }
-          .bazar-card { height: 210px !important; }
-          .bazar-card--feature { grid-column: span 1 !important; height: 260px !important; }
-        }
+   @media (max-width: 768px) {
+  .bazar-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
+    height: auto !important;
+    gap: 10px !important;
+  }
+
+  .bazar-column {
+    display: contents !important;
+  }
+
+  .bazar-card {
+    height: 180px !important;
+  }
+
+  .bazar-card--feature {
+    order: -1;
+    grid-column: 1 / -1 !important;
+    height: 230px !important;
+  }
+
+  .bazar-label {
+    opacity: 1 !important;
+    padding: 7px !important;
+  }
+}
+
+@media (max-width: 480px) {
+  .bazar-grid {
+    gap: 8px !important;
+  }
+
+  .bazar-card {
+    height: 150px !important;
+  }
+
+  .bazar-card--feature {
+    height: 195px !important;
+  }
+
+  .bazar-label span {
+    font-size: 0.62rem !important;
+    padding: 4px 6px !important;
+  }
+}
       `}</style>
     </section>
   );
