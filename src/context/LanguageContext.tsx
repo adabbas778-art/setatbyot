@@ -327,7 +327,7 @@ ar: 'منتجات وطنية احترافية'},
   'cta.title':     { en: 'Start Your Journey',   ar: 'ابدأ رحلتك' },
   'cta.desc': {
     en: 'Setat Byot is not just a website. It is a complete digital experience designed to be the gateway to the future for home kitchens and entrepreneurial projects.',
-    ar: 'ستات بيوت ليس مجرد موقع إلكتروني. و أنما تجربة رقمية متكاملة صُممت لتكون بوابة ل المستقبل  والمشاريع الريادية.',
+    ar: 'ستات بيوت ليس مجرد موقع إلكتروني. و أنما تجربة رقمية متكاملة صُممت لتكون بوابة  المستقبل  والمشاريع الريادية.',
   },
   'cta.appstore':   { en: 'App Store',    ar: 'متجر التطبيقات' },
   'cta.googleplay': { en: 'Google Play',  ar: 'جوجل بلاي' },

@@ -1,4 +1,4 @@
-import { useRef } from 'react';
+import { useRef, useState } from 'react';
 import { motion, useInView } from 'framer-motion';
 import {
   ArrowUpRight,
@@ -10,6 +10,7 @@ import {
 import { useLanguage } from '../context/LanguageContext';
 import cateringImg from '../assets/wedding-catering.jpg';
 import cateringDetailImg from '../assets/our_kitchens.jpg';
+import CateringMenuModal from './CateringMenuModal';
 
 
 const STEPS = [
@@ -51,6 +52,7 @@ function WhatsAppIcon() {
 export default function Catering() {
   const { t, language } = useLanguage();
   const isArabic = language === 'ar';
+  const [menuOpen, setMenuOpen] = useState(false);
   const ref = useRef<HTMLElement>(null);
   const isInView = useInView(ref, { once: true, amount: 0.08 });
 
@@ -168,7 +170,20 @@ export default function Catering() {
           className="catering-journey"
         >
           {STEPS.map(({ icon: Icon, titleKey, descKey }, index) => (
-            <article key={titleKey} className="catering-journey-step">
+         <article
+  key={titleKey}
+  className="catering-journey-step"
+  onClick={index === 0 ? () => setMenuOpen(true) : undefined}
+  onKeyDown={index === 0 ? (e) => {
+    if (e.key === 'Enter' || e.key === ' ') {
+      e.preventDefault();
+      setMenuOpen(true);
+    }
+  } : undefined}
+  role={index === 0 ? 'button' : undefined}
+  tabIndex={index === 0 ? 0 : undefined}
+  style={{ cursor: index === 0 ? 'pointer' : 'default' }}
+>
               <div className="catering-step-meta">
                 <span className="catering-step-number">0{index + 1}</span>
                 <span className="catering-step-icon"><Icon size={20} strokeWidth={1.5} /></span>
@@ -178,6 +193,12 @@ export default function Catering() {
             </article>
           ))}
         </motion.div>
+           <CateringMenuModal
+          open={menuOpen}
+          onClose={() => setMenuOpen(false)}
+          language={language}
+        />
+
       </div>
 
       <style>{`
