@@ -216,7 +216,7 @@ ar: 'منتجات وطنية احترافية'},
   ar: 'العزائم المنزلية'
 },
   'catering.step1.title': { en: 'Choose your menu',          ar:'اختار قائمتك' },
-  'catering.step1.desc':  { en: 'Click here to choose your occasion', ar: 'اضغط هنا ل اختيار مناسبتكك' },
+  'catering.step1.desc':  { en: 'Click here to choose your occasion', ar: 'اضغط هنا لاختيار مناسبتكك' },
   'catering.step2.title': { en: 'Prepared with trusted hands', ar: 'نجهّز بأيادٍ أمينة' },
   'catering.step2.desc':  { en: 'Licensed production kitchens operating in accordance with quality standards', ar:' مطابخ إنتاجية مرخصة تعمل بمعايير الجودة' },
   'catering.step3.title': { en: 'We arrive before your time',  ar: 'نصل قبل موعدك' },

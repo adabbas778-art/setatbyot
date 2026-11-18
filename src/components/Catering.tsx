@@ -190,9 +190,34 @@ export default function Catering() {
               </div>
               <h4 style={{ fontFamily: fontTitle }}>{t(titleKey)}</h4>
               <p style={{ fontFamily: fontBody }}>{t(descKey)}</p>
+              
             </article>
           ))}
+          
+          
         </motion.div>
+        <div style={{ display: 'flex', justifyContent: 'center', margin: '24px 0' }}>
+  <a
+    href="https://setatbyot-catering.onrender.com"
+    target="_blank" 
+    rel="noopener noreferrer"
+    style={{
+      display: 'inline-block',
+      padding: '15px 28px',
+      backgroundColor: '#00838f',
+      color: '#ffffff',
+      borderRadius: '12px',
+      fontWeight: 700,
+      textDecoration: 'none',
+      textAlign: 'center',
+    }}
+  >
+    {language === 'ar'
+    
+  ? 'استكشف منيو الكيترينج وابدأ حجز مناسبتك'
+  : 'Explore Our Catering Menu & Start Your Booking'}
+  </a>
+</div>
            <CateringMenuModal
           open={menuOpen}
           onClose={() => setMenuOpen(false)}
