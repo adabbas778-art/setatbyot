@@ -11,8 +11,14 @@ import Catering from './components/Catering';
 import Sponsors from './components/Sponsors';
 import AboutUs from './components/AboutUs';
 import DownloadCTA from './components/DownloadCTA';
+import PaymentSandbox from './components/PaymentSandbox';
+
 
 function MainApp() {
+  if (window.location.hash === '#payment-sandbox') {
+    return <PaymentSandbox />;
+  }
+
   return (
     <div style={{ minHeight: '100dvh', backgroundColor: 'var(--background)', color: 'var(--foreground)' }}>
       <Navbar />
