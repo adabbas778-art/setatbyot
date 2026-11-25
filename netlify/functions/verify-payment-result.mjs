@@ -70,10 +70,14 @@ export default async function handler(request, context) {
 
     const publicKey = await importJWK(jwk, "RS256");
 
-    await jwtVerify(resultJWT, publicKey, {
-      algorithms: ["RS256"]
-    });
+const { payload } = await jwtVerify(resultJWT, publicKey, {
+  algorithms: ["RS256"]
 
+});
+console.log(
+  "Sandbox payment field names:",
+  Object.keys(payload)
+);
     return reply({
       signatureVerified: true,
       paymentConfirmed: false,
