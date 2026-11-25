@@ -46,11 +46,51 @@ script.onload = async () => {
     const accept = await bankAccept(data.token);
     const up = await accept.unifiedPayments();
 
-    await up.show({
-      containers: {
-        paymentSelection: '#payment-form'
-      }
-    });
+const orderId = sessionStorage.getItem('setatbyotSandboxOrderId');
+
+if (!orderId) {
+  alert('رقم الطلب التجريبي غير موجود');
+  return;
+}
+
+const transientToken = await up.show({
+  containers: {
+    paymentSelection: '#payment-form'
+  }
+});
+
+if (!transientToken) return;
+
+if (typeof up.complete !== 'function') {
+  alert('إتمام الدفع غير متاح في جلسة البنك الحالية');
+  return;
+}
+
+const resultJWT = await up.complete(transientToken);
+
+if (typeof resultJWT !== 'string') {
+  alert('نتيجة البنك غير متوقعة. لم يتم تأكيد الدفع.');
+  return;
+}
+
+const verifyResponse = await fetch(
+  '/.netlify/functions/verify-payment-result',
+  {
+    method: 'POST',
+    headers: { 'Content-Type': 'application/json' },
+    body: JSON.stringify({ orderId, resultJWT })
+  }
+);
+
+const verification = await verifyResponse.json();
+
+if (!verifyResponse.ok || verification.signatureVerified !== true) {
+  alert('تعذّر التحقق من توقيع البنك. لا تعتبر العملية مدفوعة.');
+  return;
+}
+
+alert('تم التحقق من توقيع البنك، لكن تأكيد الدفع النهائي قيد التجهيز.');
+
   } catch {
     alert('تعذّر عرض نموذج الدفع التجريبي');
   }
