@@ -14,7 +14,44 @@ export default function PaymentSandbox() {
         return;
       }
 
-      alert('تم إنشاء جلسة تجريبية مع بنك الاتحاد بنجاح');
+    if (!data.clientLibrary || !data.clientLibraryIntegrity) {
+  alert('بيانات نموذج الدفع غير مكتملة');
+  return;
+}
+
+const script = document.createElement('script');
+
+script.src = data.clientLibrary;
+script.integrity = data.clientLibraryIntegrity;
+script.crossOrigin = 'anonymous';
+script.async = true;
+
+script.onload = async () => {
+  try {
+    const bankAccept = (window as any).Accept;
+
+    if (typeof bankAccept !== 'function') {
+      throw new Error('Bank SDK unavailable');
+    }
+
+    const accept = await bankAccept(data.token);
+    const up = await accept.unifiedPayments();
+
+    await up.show({
+      containers: {
+        paymentSelection: '#payment-form'
+      }
+    });
+  } catch {
+    alert('تعذّر عرض نموذج الدفع التجريبي');
+  }
+};
+
+script.onerror = () => {
+  alert('تعذّر تحميل مكتبة الدفع من البنك');
+};
+
+document.body.appendChild(script);
     } catch {
       alert('الاتصال بالبنك يحتاج نسخة Netlify التجريبية، وليس Vite المحلي');
     }
@@ -69,6 +106,13 @@ export default function PaymentSandbox() {
         >
           💳 اختبار الاتصال ببنك الاتحاد
         </button>
+        <div
+  id="payment-form"
+  style={{
+    marginTop: '24px',
+    textAlign: 'start',
+  }}
+/>
 
         <p style={{ fontSize: '14px', marginTop: '20px' }}>
           هذه صفحة اختبار فقط، ولا تستقبل دفعات حقيقية.
