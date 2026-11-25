@@ -13,6 +13,15 @@ export default function PaymentSandbox() {
         alert('تعذّر إنشاء جلسة الدفع التجريبية');
         return;
       }
+      if (!data.orderId) {
+  alert('تعذّر إنشاء رقم الطلب التجريبي');
+  return;
+}
+
+sessionStorage.setItem(
+  'setatbyotSandboxOrderId',
+  data.orderId
+);
 
     if (!data.clientLibrary || !data.clientLibraryIntegrity) {
   alert('بيانات نموذج الدفع غير مكتملة');
