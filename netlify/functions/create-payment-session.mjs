@@ -1,4 +1,5 @@
 
+import { getDeployStore } from "@netlify/blobs";
 export default async function handler(request, context) {
   const json = (data, status = 200) =>
     Response.json(data, {
@@ -57,11 +58,25 @@ export default async function handler(request, context) {
       return json({ error: "Incomplete bank response" }, 502);
     }
 
-    return json({
-      token: data.token,
-      clientLibrary: data.clientLibrary,
-      clientLibraryIntegrity: data.clientLibraryIntegrity
-    });
+  const orderId = crypto.randomUUID();
+
+const store = getDeployStore("payment-sandbox-sessions");
+
+await store.setJSON(orderId, {
+  status: "pending",
+  amount: "1.00",
+  currency: "JOD",
+  captureContext: data.token,
+  origin,
+  createdAt: new Date().toISOString()
+}, { onlyIfNew: true });
+
+return json({
+  orderId,
+  token: data.token,
+  clientLibrary: data.clientLibrary,
+  clientLibraryIntegrity: data.clientLibraryIntegrity
+});
   } catch {
     return json({ error: "Unable to contact bank sandbox" }, 502);
   }
