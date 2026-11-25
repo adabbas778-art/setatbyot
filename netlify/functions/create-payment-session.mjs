@@ -1,5 +1,5 @@
 
-export default async function handler(request) {
+export default async function handler(request, context) {
   const json = (data, status = 200) =>
     Response.json(data, {
       status,
@@ -11,9 +11,9 @@ export default async function handler(request) {
   }
 
   // Never allow this test function on the live website
-  if (process.env.CONTEXT !== "deploy-preview") {
-    return json({ error: "Sandbox only" }, 403);
-  }
+  if (context?.deploy?.context !== "deploy-preview") {
+  return json({ error: "Sandbox only" }, 403);
+}
 
   const token = process.env.BANK_ETIHAD_SANDBOX_TOKEN;
 
